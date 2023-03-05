@@ -39,10 +39,9 @@ function init() {
         addD();
       } else if (answers.purpose === "Add Role"){
         addR();
+      } else {
+        console.log(answers);
       }
-
-      console.log(answers);
-
     })
     .catch((error) => {
       if (error) {
@@ -54,6 +53,7 @@ function init() {
 // Function call to initialize app
 init();
 
+// add an employee to table 'employee'
 function addE(){
     inquirer
     .prompt([
@@ -101,6 +101,7 @@ function addE(){
     });
 };
 
+// add an department to table 'department'
 function addD(){
     inquirer
     .prompt([
@@ -121,6 +122,7 @@ function addD(){
     });
 };
 
+// add an role to table 'role'
 function addR(){
     inquirer
     .prompt([
