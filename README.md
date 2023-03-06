@@ -17,7 +17,7 @@
  ## Installation
 
 1. Go to root directory
-2. Type `npm i` in the terminal (install node modules)
+2. Type `npm i inquirer@8.2.4` in the terminal (install node modules)
 3. Type `npm install --save mysql2` [Reference docs](https://www.npmjs.com/package/mysql2)
 4. Type either `node index.js` or `npm start` to begin the CLI application
 
