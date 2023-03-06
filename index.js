@@ -10,6 +10,16 @@ const connection = mysql.createConnection({
 });
 
 
+// function querying(answers){
+//     let name = answers;
+//     connection.query(
+//         `INSERT INTO employee (id,name)
+//         VALUES (name)`
+//         connection.end()
+//       );
+// }
+
+
 // Function to initialize app
 function init() {
   inquirer
@@ -31,17 +41,18 @@ function init() {
       },
     ])
     .then((answers) => {
-      if (answers.purpose === "View All Employees"){
-       // ??? how to
-      } else if (answers.purpose === "Add Employee"){
-        addE();
-      } else if (answers.purpose === "Add Department"){
-        addD();
-      } else if (answers.purpose === "Add Role"){
-        addR();
-      } else {
-        console.log(answers);
-      }
+        console.log(answers)
+    //   if (answers.purpose === "View All Employees"){
+    //    // ??? how to
+    //   } else if (answers.purpose === "Add Employee"){
+    //     addE();
+    //   } else if (answers.purpose === "Add Department"){
+    //     addD();
+    //   } else if (answers.purpose === "Add Role"){
+    //     addR();
+    //   } else {
+    //     console.log(answers);
+    //   }
     })
     .catch((error) => {
       if (error) {
@@ -112,7 +123,13 @@ function addD(){
       },
     ])
     .then((answers) => {
-        // write to table department
+    connection.query("INSERT INTO department SET ?", {
+        name: answers.deptName
+    }, function(error){
+        if (error) {
+            throw error}
+            console.log("added department")
+    });
     init(); // return to beginning of application
     })
      .catch((error) => {
