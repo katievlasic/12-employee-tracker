@@ -87,8 +87,9 @@ function upE(){
           }
         ])
         .then((answers) => {
+          console.log(answers.id);
           connection.query(
-            "UPDATE employee SET ? WHERE id",
+            "UPDATE employee SET answers.role_id = ? WHERE answer_id = ?",
             answers,
             function (error) {
               if (error) {
