@@ -132,7 +132,6 @@ function quit(){
   )
 };
 
-
 function viewE() {
   connection.query("SELECT * FROM employee", (err, employeeResults) => {
     if (err) throw err;
@@ -224,7 +223,6 @@ function addD() {
       },
     ])
     .then((answers) => {
-      console.log(answers);
       connection.query(
         "INSERT INTO department SET ?",
         answers,
