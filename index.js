@@ -87,15 +87,16 @@ function upE(){
           }
         ])
         .then((answers) => {
-          console.log(answers.id);
+          let em = answers.id;
+          let newRole = answers.role_id;
           connection.query(
-            "UPDATE employee SET answers.role_id = ? WHERE answer_id = ?",
+            `UPDATE employee SET role_id = ${newRole} WHERE id = ${em}`,
             answers,
             function (error) {
               if (error) {
                 throw error;
               }
-              console.log("update emplyoee's role");
+              console.log("updated emplyoee's role");
               init(); // workflow - want within callback
             }
           );
